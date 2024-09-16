@@ -1,0 +1,37 @@
+{
+    "manifest_version": 3,
+    "name": "My Chart Test Result Chat Automation",
+    "version": "1.0",
+    "permissions": [
+      "activeTab",
+      "scripting",
+      "tabs",
+      "storage",
+      "sidePanel",
+      "downloads"
+    ],
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://chatgpt.com/*"],
+        "js": [
+            "content.js"
+        ]
+      }
+    ],
+    "side_panel": {
+      "default_path": "sidepanel.html"
+    },
+    "host_permissions": [
+      "https://secure.mypennmedicine.org/*",
+      "https://chatgpt.com/*",
+      "https://chat.openai.com/*",
+      "file:///*"
+    ],
+    "action": {
+      "default_popup": "sidepanel.html"
+    }
+  }
